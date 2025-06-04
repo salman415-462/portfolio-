@@ -1,0 +1,101 @@
+Create a stunning cybersecurity-themed, dark-mode-only, frontend-only portfolio website for Muhammad Salman, an OSINT-focused Cybersecurity student from Islamabad, Pakistan.
+🔹 General Requirements:
+
+    Responsive, hacker-style design (dark background, neon green/blue accents, glowing hover effects)
+
+    Font: Hacker/terminal-inspired (Share Tech Mono or Orbitron)
+
+    Full HTML/CSS/JS (Tailwind or Bootstrap allowed)
+
+    Must be 100% static and ready for GitHub Pages
+
+    Animated typing effect in hero: "CS Student & Threat Intelligence Learner"
+
+    Scroll-based reveal animations
+
+    Theme toggle not required (dark only)
+
+    No backend, no forms — just frontend magic
+
+🔹 Sections:
+
+1. Hero Section
+
+    Name: Muhammad Salman
+
+    Typing headline + hacker background animation (optional matrix rain)
+
+2. About Me
+
+    Short paragraph (based on this):
+
+        "I’m a passionate cybersecurity student at the National University of Technology. With a focus on OSINT, fake news detection, and threat intelligence, I’m building tools to uncover truth, protect digital footprints, and share insights with the world."
+
+3. Skills
+
+    Python, OSINT, Streamlit, DFA, XGBoost, Random Forest, Shodan, WHOIS, AbuseIPDB, SQL/NoSQL, Threat Detection, IPS, Cyber Defense
+
+4. Projects
+
+    Card/grid layout:
+
+        AI Phishing Email Detector
+        Detects suspicious patterns using DFA + ML (XGBoost, Random Forest)
+
+        SQL vs NoSQL Advisor
+        Schema analysis + dashboard in Streamlit
+
+        OSINT Dashboard
+        Uses APIs: WHOIS, Shodan, HaveIBeenPwned, AbuseIPDB, IPInfo, EmailRep, DNS, SSL, Ports
+
+5. Certifications
+
+    Google Cybersecurity Certificate
+
+    Play It Safe: Manage Security Risks
+
+    Assets, Threats, and Vulnerabilities
+
+    Google AI Essentials
+
+    Tools of the Trade: Linux and SQL
+
+    Sound the Alarm: Detection and Response
+
+6. Education
+
+    BSc Computer Science, NUTECH (2023–2027)
+
+    Pre-Engineering, Concordia Colleges (2021–2023)
+
+7. Resume Download
+
+    Prominent download button linking to assets/Profile.pdf
+
+    Text: "Download Resume (PDF)"
+
+8. Contact
+
+    mailto:muhammadsalmanzahid@outlook.com
+
+    Socials with icons:
+
+        LinkedIn: linkedin.com/in/muhammad-salman-128aa3318
+
+        GitHub, X (use placeholder links)
+
+9. Footer
+
+    Dark footer with © 2025 Muhammad Salman | GitHub Pages Hosting
+
+🔹 Bonus:
+
+    Embed Google Analytics (placeholder ID)
+
+    Include SEO meta tags for LinkedIn preview
+
+    Favicon and clean code
+
+    README.md with deployment instructions for GitHub Pages
+
+    Use placeholder profile picture

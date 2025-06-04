@@ -3,6 +3,48 @@ import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   const typedTextRef = useRef<HTMLSpanElement>(null);
+  const matrixRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    // Matrix rain animation
+    if (matrixRef.current) {
+      const canvas = matrixRef.current;
+      const ctx = canvas.getContext('2d');
+      
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+      const drops: number[] = [];
+      
+      for (let x = 0; x < canvas.width / 10; x++) {
+        drops[x] = 1;
+      }
+      
+      const draw = () => {
+        if (!ctx || !canvas) return;
+        
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.fillStyle = '#00ff41';
+        ctx.font = '15px Share Tech Mono';
+        
+        for (let i = 0; i < drops.length; i++) {
+          const text = matrix[Math.floor(Math.random() * matrix.length)];
+          ctx.fillText(text, i * 10, drops[i] * 10);
+          
+          if (drops[i] * 10 > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      };
+      
+      const interval = setInterval(draw, 35);
+      return () => clearInterval(interval);
+    }
+  }, []);
 
   useEffect(() => {
     // Initialize typing animation
@@ -11,23 +53,22 @@ export default function Hero() {
         new (window as any).Typed(typedTextRef.current, {
           strings: [
             'CS Student & Threat Intelligence Learner',
-            'Cybersecurity Enthusiast', 
-            'Machine Learning Developer',
-            'OSINT Researcher',
-            'Future Security Professional'
+            'OSINT Specialist',
+            'Cybersecurity Enthusiast',
+            'Digital Forensics Expert',
+            'Threat Hunter'
           ],
-          typeSpeed: 50,
-          backSpeed: 30,
+          typeSpeed: 60,
+          backSpeed: 40,
           backDelay: 2000,
           startDelay: 1000,
           loop: true,
           showCursor: true,
-          cursorChar: '|'
+          cursorChar: '_'
         });
       }
     };
 
-    // Try immediately or wait for script to load
     if ((window as any).Typed) {
       initTyping();
     } else {
@@ -38,13 +79,16 @@ export default function Hero() {
         }
       }, 100);
       
-      // Clear interval after 5 seconds to prevent infinite checking
       setTimeout(() => clearInterval(checkTyped), 5000);
     }
   }, []);
 
   const handleResumeDownload = () => {
-    alert('Resume download would start here. Please replace with actual PDF URL.');
+    // Create download link for resume
+    const link = document.createElement('a');
+    link.href = '/assets/Profile.pdf';
+    link.download = 'Muhammad_Salman_Resume.pdf';
+    link.click();
   };
 
   const scrollToProjects = () => {
@@ -59,82 +103,105 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-purple-900">
-      {/* Animated Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-pink-500/10 animate-gradient-x"></div>
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
+      {/* Matrix Rain Background */}
+      <canvas 
+        ref={matrixRef}
+        className="absolute inset-0 opacity-30"
+        style={{ width: '100%', height: '100%' }}
+      />
       
-      {/* Floating Geometric Elements */}
-      <div className="absolute top-20 left-10 w-24 h-24 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full animate-float blur-sm"></div>
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full animate-float blur-sm" style={{animationDelay: '-2s'}}></div>
-      <div className="absolute top-1/2 right-20 w-20 h-20 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full animate-float blur-sm" style={{animationDelay: '-4s'}}></div>
-      <div className="absolute top-1/4 left-1/4 w-16 h-16 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full animate-float blur-sm" style={{animationDelay: '-1s'}}></div>
+      {/* Cyber Grid Overlay */}
+      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="absolute inset-0 matrix-bg"></div>
+      
+      {/* Floating Code Elements */}
+      <div className="absolute top-20 left-10 w-32 h-32 hacker-glass rounded-lg animate-float opacity-20 flex items-center justify-center">
+        <span className="text-green-400 text-xs hacker-font">{'{ }'}</span>
+      </div>
+      <div className="absolute bottom-20 right-10 w-24 h-24 cyber-glass rounded-lg animate-float opacity-20 flex items-center justify-center" style={{animationDelay: '-2s'}}>
+        <span className="text-cyan-400 text-xs hacker-font">{'</>'}</span>
+      </div>
+      <div className="absolute top-1/2 right-20 w-20 h-20 hacker-glass rounded-lg animate-float opacity-20 flex items-center justify-center" style={{animationDelay: '-4s'}}>
+        <span className="text-green-400 text-xs hacker-font">{'[]'}</span>
+      </div>
       
       {/* Main Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-        {/* Profile Image with Glassmorphism */}
-        <div className="mb-8 inline-block">
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        {/* Terminal-style Profile */}
+        <div className="mb-8 inline-block" data-aos="zoom-in">
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-spin-slow opacity-75 blur-md"></div>
+            <div className="absolute inset-0 border-2 border-green-400 rounded-full animate-pulse opacity-60"></div>
+            <div className="absolute inset-0 border border-cyan-400 rounded-full animate-spin-slow opacity-40"></div>
             <img 
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&w=300&h=300&fit=crop&crop=face" 
               alt="Muhammad Salman Profile Picture" 
-              className="relative w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto shadow-2xl border-4 border-white/50 dark:border-slate-700/50 backdrop-blur-sm"
+              className="relative w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto terminal-border grayscale hover:grayscale-0 transition-all duration-500"
             />
           </div>
         </div>
         
-        {/* Main Heading with Stunning Typography */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
-          <span className="inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent animate-gradient-x">
-            Muhammad
-          </span>
-          <br />
-          <span className="inline-block bg-gradient-to-r from-purple-600 via-pink-600 to-purple-800 bg-clip-text text-transparent animate-gradient-x" style={{animationDelay: '-0.5s'}}>
-            Salman
-          </span>
-        </h1>
-        
-        {/* Animated Subtitle with Better Styling */}
-        <div className="text-xl md:text-3xl lg:text-4xl font-semibold mb-8 h-20 flex items-center justify-center text-slate-700 dark:text-slate-300">
-          <span ref={typedTextRef} className="min-h-[1.2em]"></span>
+        {/* Hacker-style Name Display */}
+        <div className="mb-6" data-aos="fade-up">
+          <div className="text-green-400 text-sm hacker-font mb-2">root@cybersec:~$ whoami</div>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black cyber-font glow-green">
+            <span className="text-matrix">MUHAMMAD</span>
+            <br />
+            <span className="text-cyber">SALMAN</span>
+          </h1>
         </div>
         
-        {/* Enhanced Bio */}
-        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-4xl mx-auto mb-10 leading-relaxed font-medium">
-          🚀 Passionate Computer Science student specializing in Threat Intelligence and Cybersecurity. 
-          I build innovative solutions that bridge the gap between technology and security, 
-          creating a safer digital world through code and intelligence.
-        </p>
+        {/* Terminal-style Typing Animation */}
+        <div className="mb-8" data-aos="fade-up" data-aos-delay="200">
+          <div className="hacker-glass rounded-lg p-4 max-w-3xl mx-auto">
+            <div className="text-green-400 text-sm hacker-font mb-2">root@cybersec:~$ cat /etc/profile</div>
+            <div className="text-xl md:text-3xl hacker-font text-green-300 h-12 flex items-center">
+              <span className="text-green-400">{'>'}</span>
+              <span ref={typedTextRef} className="ml-2"></span>
+            </div>
+          </div>
+        </div>
         
-        {/* Enhanced CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-          <Button 
+        {/* Bio with Terminal Style */}
+        <div className="mb-10" data-aos="fade-up" data-aos-delay="400">
+          <div className="hacker-glass rounded-lg p-6 max-w-4xl mx-auto text-left">
+            <div className="text-green-400 text-sm hacker-font mb-3">root@cybersec:~$ cat README.md</div>
+            <p className="text-green-300 hacker-font leading-relaxed">
+              I'm a passionate cybersecurity student at the National University of Technology. 
+              With a focus on OSINT, fake news detection, and threat intelligence, I'm building 
+              tools to uncover truth, protect digital footprints, and share insights with the world.
+            </p>
+          </div>
+        </div>
+        
+        {/* Cyber Buttons */}
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16" data-aos="fade-up" data-aos-delay="600">
+          <button 
             onClick={scrollToProjects}
-            className="px-10 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 hover:from-blue-700 hover:via-purple-700 hover:to-blue-700 text-white rounded-full font-bold text-lg shadow-2xl hover:shadow-purple-500/25 transform hover:scale-110 transition-all duration-300 animate-gradient-x"
+            className="cyber-button px-8 py-4 rounded-lg font-bold text-lg hacker-font relative overflow-hidden group"
           >
-            🎯 View My Work
-          </Button>
-          <Button 
-            variant="ghost"
+            <span className="relative z-10">{'> VIEW_PROJECTS.exe'}</span>
+            <div className="absolute inset-0 bg-green-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+          </button>
+          <button 
             onClick={handleResumeDownload}
-            className="px-10 py-4 bg-white/20 dark:bg-slate-800/20 backdrop-blur-md border border-white/30 dark:border-slate-700/30 rounded-full font-bold text-lg hover:bg-white/30 dark:hover:bg-slate-800/30 transition-all duration-300 transform hover:scale-105"
+            className="cyber-button px-8 py-4 rounded-lg font-bold text-lg hacker-font relative overflow-hidden group border-cyan-400 text-cyan-400 hover:bg-cyan-400"
           >
-            📥 Download Resume
-          </Button>
+            <span className="relative z-10">{'> DOWNLOAD_RESUME.pdf'}</span>
+            <div className="absolute inset-0 bg-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+          </button>
         </div>
         
-        {/* Enhanced Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        {/* Terminal Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2" data-aos="fade-up" data-aos-delay="800">
           <div className="animate-bounce">
-            <div className="w-6 h-10 border-2 border-slate-400 dark:border-slate-500 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-slate-400 dark:bg-slate-500 rounded-full mt-2 animate-pulse"></div>
+            <div className="text-green-400 text-2xl">
+              <i className="fas fa-terminal"></i>
+              <div className="text-xs hacker-font mt-1">SCROLL</div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Additional Visual Effects */}
-      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/5 dark:to-black/5 pointer-events-none"></div>
     </section>
   );
 }
