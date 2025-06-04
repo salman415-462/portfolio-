@@ -1,4 +1,3 @@
-import { ThemeProvider } from "@/components/theme-provider";
 import Portfolio from "@/pages/portfolio";
 import { useEffect } from "react";
 
@@ -29,11 +28,7 @@ function App() {
     }
   }, []);
 
-  return (
-    <ThemeProvider>
-      <Portfolio />
-    </ThemeProvider>
-  );
+  return <Portfolio />;
 }
 
 export default App;
