@@ -54,8 +54,7 @@ export default function Portfolio() {
             'CS Student & Threat Intelligence Learner',
             'OSINT Specialist',
             'Cybersecurity Enthusiast',
-            'Digital Forensics Expert',
-            'Threat Hunter'
+            
           ],
           typeSpeed: 60,
           backSpeed: 40,
@@ -119,7 +118,7 @@ export default function Portfolio() {
         <div className="text-center max-w-4xl">
           <div className="mb-6">
             <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" 
+              src="https://imgs.search.brave.com/K0a1M8lWRg7C8j_R3TMVHH3i6ye4OS3hkG21MDe5gl0/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9pbnRl/bC1sZ2EtY3B1LXNv/Y2tldC1tb3RoZXJi/b2FyZC1jb21wdXRl/ci1wYy1wcm9jZXNz/b3ItY2xvc2UtdXAt/MTE1ODk2ODU3Lmpw/Zw"
               alt="Muhammad Salman" 
               className="w-32 h-32 rounded-full mx-auto border-2 border-green-400 mb-4 grayscale"
             />
