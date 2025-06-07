@@ -176,12 +176,12 @@ export default function Portfolio() {
           </div>
           <div className="bg-black/60 border border-green-400/30 rounded-lg p-8">
             <p className="text-green-300 leading-relaxed mb-6">
-              I'm a passionate cybersecurity student at the National University of Technology in Islamabad, Pakistan. 
-              My journey in cybersecurity began with a curiosity about digital forensics and has evolved into a 
-              specialized focus on Open Source Intelligence (OSINT) and threat detection.
+              I'm a passionate Computer Science student at the National University of Technology in Islamabad, Pakistan. 
+              My journey in cybersecurity began with a curiosity about Cyber and has evolved into a 
+              specialized focus on Open Source Intelligence (OSINT) and Threat Intelligence.
             </p>
             <p className="text-green-300 leading-relaxed">
-              Currently pursuing my BSc in Computer Science (2023-2027), I'm building tools that help organizations 
+              Currently pursuing my BS in Computer Science (2023-2027), I'm building tools that help organizations 
               detect fake news, analyze threats, and protect their digital infrastructure. My work combines machine 
               learning, data analysis, and cybersecurity principles to create practical solutions for real-world problems.
             </p>
@@ -256,6 +256,19 @@ export default function Portfolio() {
               <h3 className="text-green-400 font-bold mb-2">SQL vs NoSQL Advisor</h3>
               <p className="text-green-300 text-sm mb-4">
                 Schema analysis + dashboard in Streamlit
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {['Python', 'Streamlit', 'SQL', 'NoSQL'].map(tech => (
+                  <span key={tech} className="bg-cyan-400/20 text-cyan-400 px-2 py-1 text-xs rounded">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              </div>
+            <div className="bg-black/60 border border-green-400/30 rounded-lg p-6 hover:border-grey-400 transition-all">
+              <h3 className="text-grey-400 font-bold mb-2">Lexical Analyzer for Suspecious Pattern Recognition</h3>
+              <p className="text-grey-300 text-sm mb-4">
+                Streamlit Dashboard + DFA graphs 
               </p>
               <div className="flex flex-wrap gap-2">
                 {['Python', 'Streamlit', 'SQL', 'NoSQL'].map(tech => (
