@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react";
+import profilePic from '../pic.png';
+
 
 export default function Portfolio() {
   const typedTextRef = useRef<HTMLSpanElement>(null);
@@ -52,8 +54,8 @@ export default function Portfolio() {
         new (window as any).Typed(typedTextRef.current, {
           strings: [
             'CS Student & Threat Intelligence Learner',
-            'OSINT Specialist',
-            'Cybersecurity Enthusiast',
+            'OSINT',
+            'Cybersecurity Learner',
             
           ],
           typeSpeed: 60,
@@ -100,7 +102,7 @@ export default function Portfolio() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-green-400/20 p-4">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <div className="text-xl font-bold text-green-400">[MS_CYBER]</div>
+          <div className="text-xl font-bold text-green-400">[OpenintelX]</div>
           <div className="hidden md:flex space-x-6">
             <button onClick={() => scrollToSection('home')} className="text-green-400 hover:text-green-300">HOME</button>
             <button onClick={() => scrollToSection('about')} className="text-green-400 hover:text-green-300">ABOUT</button>
@@ -117,11 +119,16 @@ export default function Portfolio() {
       <section id="home" className="min-h-screen flex items-center justify-center relative z-10 px-4">
         <div className="text-center max-w-4xl">
           <div className="mb-6">
-            <img 
-              src="https://imgs.search.brave.com/K0a1M8lWRg7C8j_R3TMVHH3i6ye4OS3hkG21MDe5gl0/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9pbnRl/bC1sZ2EtY3B1LXNv/Y2tldC1tb3RoZXJi/b2FyZC1jb21wdXRl/ci1wYy1wcm9jZXNz/b3ItY2xvc2UtdXAt/MTE1ODk2ODU3Lmpw/Zw"
-              alt="Muhammad Salman" 
-              className="w-32 h-32 rounded-full mx-auto border-2 border-green-400 mb-4 grayscale"
-            />
+
+          <img 
+  src={profilePic}
+  alt="Muhammad Salman"
+  className="w-48 h-48 rounded-full mx-auto border-4 border-green-400 mb-6 grayscale"
+/>
+
+
+          
+
             <div className="text-green-400 text-sm mb-2">root@cybersec:~$ whoami</div>
             <h1 className="text-4xl md:text-6xl font-bold text-green-400 mb-4">
               MUHAMMAD SALMAN
@@ -210,7 +217,7 @@ export default function Portfolio() {
             <div className="bg-black/60 border border-green-400/30 rounded-lg p-6">
               <h3 className="text-green-400 font-bold mb-4">CYBERSECURITY</h3>
               <div className="space-y-2">
-                {['OSINT', 'Threat Intelligence', 'Digital Forensics', 'Penetration Testing', 'IPS/IDS'].map(skill => (
+                {['OSINT', 'Threat Intelligence', 'SEIM Tools', 'Basic Web Application Testing', 'Incidence Response'].map(skill => (
                   <div key={skill} className="bg-green-400/10 border border-green-400/30 px-3 py-1 rounded text-green-300 text-sm">
                     {skill}
                   </div>
@@ -218,9 +225,9 @@ export default function Portfolio() {
               </div>
             </div>
             <div className="bg-black/60 border border-green-400/30 rounded-lg p-6">
-              <h3 className="text-green-400 font-bold mb-4">TOOLS & APIS</h3>
+              <h3 className="text-green-400 font-bold mb-4">Tools and Skills</h3>
               <div className="space-y-2">
-                {['Shodan', 'WHOIS', 'AbuseIPDB', 'HaveIBeenPwned', 'VirusTotal', 'Streamlit'].map(skill => (
+                {['ML Models specific cyber focused','Prompt Engineering','Ms Office','React and Flask','Analytical Skills','Problem Solving','Communication Skills'].map(skill => (
                   <div key={skill} className="bg-green-400/10 border border-green-400/30 px-3 py-1 rounded text-green-300 text-sm">
                     {skill}
                   </div>
@@ -307,7 +314,7 @@ export default function Portfolio() {
               <h3 className="text-green-400 font-bold mb-4">EDUCATION</h3>
               <div className="space-y-4">
                 <div>
-                  <h4 className="text-green-300 font-semibold">BSc Computer Science</h4>
+                  <h4 className="text-green-300 font-semibold">BS Computer Science</h4>
                   <p className="text-green-400 text-sm">NUTECH • 2023-2027</p>
                 </div>
                 <div>
@@ -321,11 +328,11 @@ export default function Portfolio() {
               <div className="space-y-2">
                 {[
                   'Google Cybersecurity Certificate',
-                  'Play It Safe: Manage Security Risks', 
-                  'Assets, Threats, and Vulnerabilities',
+                  'Lets Defend Soc Analyst Path',
+                  'Essential Soft Skills for Career Development by Leeds University',
+                  'Google IT Automation Course',
                   'Google AI Essentials',
-                  'Tools of the Trade: Linux and SQL',
-                  'Sound the Alarm: Detection and Response'
+                  
                 ].map(cert => (
                   <div key={cert} className="bg-green-400/10 border border-green-400/30 px-3 py-2 rounded">
                     <span className="text-green-300 text-sm">{cert}</span>
@@ -373,7 +380,7 @@ export default function Portfolio() {
       <footer className="py-8 px-4 relative z-10 border-t border-green-400/20">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-green-400 text-sm">
-            © 2025 Muhammad Salman | GitHub Pages Hosting | Built with passion for cybersecurity
+            © Muhammad Salman  | Built with passion for cybersecurity
           </p>
         </div>
       </footer>
